@@ -14,7 +14,7 @@
         <property name="projectCode" type="java.lang.String">
             <column name="PROJECTCODE" />
         </property>
-        <many-to-one name="employee" class="com.krishantha.training.hibernate.object.Employee" not-null="true">
+        <many-to-one name="employee" class="com.virtusa.training.hibernate.object.Employee" not-null="true">
             <column name="EMPID" />
         </many-to-one>
     </class>

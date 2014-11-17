@@ -4,29 +4,34 @@
 <!-- Generated Nov 14, 2014 6:48:01 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.virtusa.training.hibernate.object.Employee" table="EMPLOYEE">
-        <id name="empId" type="int">
-            <column name="EMPID" />
-            <generator class="increment" />
-        </id>
-        <property name="name" />
-        <property name="age" type="int">
-            <column name="AGE" />
-        </property>
-        <component name="AllocationData">
-        <property name="city" type="java.lang.String">
-            <column name="CITY" />
-        </property>
-        <property name="mobile" type="java.lang.String">
-            <column name="MOBILE" />
-        </property>
-        </component>
-        
-        <list name="allocationHistories" table="EMPLOYEE_HISTORY">
-        <key column="ID"/>
-        <list-index column="ROWID">
-        <composite-element class="com.virtusa.training.hibernate.object.AllocationHistory">
-       <property name="allocationDate" type="date" ></property>
-        <property name="projectCode" type="string" ></property>
-       
-    </class>
+       <id name="empId" type="int">
+			<column name="EMPID" />
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+
+		<property name="age" type="int">
+			<column name="AGE" />
+		</property>
+
+		<component name="AllocationData">
+			<property name="city" type="java.lang.String">
+				<column name="CITY" />
+			</property>
+			<property name="mobile" />
+		</component>
+		<list name="allocationHistories" table="EMPLOYEE_HISTORY"
+			inverse="true" cascade="save-update">
+			<key column="EMPID" />
+			<list-index column="ROWID" />
+			<one-to-many
+				class="com.virtusa.training.hibernate.object.AllocationHistory" />
+		</list>
+
+
+
+
+
+
+	</class>
 </hibernate-mapping>
