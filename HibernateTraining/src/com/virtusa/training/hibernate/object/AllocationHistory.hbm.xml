@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 17, 2014 2:28:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.virtusa.training.hibernate.object.AllocationHistory" table="ALLOCATIONHISTORY">
+         <id name="employeeId" type="int">
+            <column name="EMPLOYEEID" />
+            <generator class="increment" />
+        </id>
+        <property name="allocationDate" type="java.util.Date">
+            <column name="ALLOCATIONDATE" />
+        </property>
+        <property name="projectCode" type="java.lang.String">
+            <column name="PROJECTCODE" />
+        </property>
+        <many-to-one name="employee" class="com.krishantha.training.hibernate.object.Employee" not-null="true">
+            <column name="EMPID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
+

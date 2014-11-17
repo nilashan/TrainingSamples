@@ -7,26 +7,30 @@ import java.util.Set;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 public class Employee {
-	
+
+	private int empId;
 	private String name;
 	private int age;
-	//private String city;
-	private int empId;
-	//private String mobile;
-	private AllocationData allocationData=new AllocationData();
-	List<AllocationHistory> allocationHistories=new ArrayList<>();
-	
+
+	private AllocationData allocationData = new AllocationData();
+	List<AllocationHistory> allocationHistories = new ArrayList<>();
+
 	public void addAllocationHistory(AllocationHistory allocationHistory) {
 		allocationHistory.setEmployee(this);
 		allocationHistories.add(allocationHistory);
 	}
-	
+
 	public List<AllocationHistory> getAllocationHistories() {
 		return allocationHistories;
 	}
 
-	public void setAllocationHistories(List<AllocationHistory> allocationHistories) {
+	public void setAllocationHistories(
+			List<AllocationHistory> allocationHistories) {
 		this.allocationHistories = allocationHistories;
 	}
 
@@ -37,8 +41,6 @@ public class Employee {
 	public void setAllocationData(AllocationData allocationData) {
 		this.allocationData = allocationData;
 	}
-
-
 
 	public int getEmpId() {
 		return empId;
@@ -63,7 +65,5 @@ public class Employee {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-
 
 }
