@@ -1,4 +1,4 @@
-package com.virtusa.training.hibernate.object;
+package com.krishantha.training.hibernate.object;
 
 import java.util.Date;
 
@@ -8,7 +8,8 @@ public class AllocationHistory {
 	private String projectCode;
 	private int employeeId;
 	private Employee employee;
-
+	
+	
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -25,6 +26,10 @@ public class AllocationHistory {
 		this.employee = employee;
 	}
 
+	
+	
+	
+	
 	public AllocationHistory() {
 
 	}
@@ -50,4 +55,6 @@ public class AllocationHistory {
 		this.projectCode = projectCode;
 	}
 
+	
+	
 }

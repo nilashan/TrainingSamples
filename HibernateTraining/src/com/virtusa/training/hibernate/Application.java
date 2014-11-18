@@ -20,13 +20,15 @@ public class Application {
 		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
 		Employee employee = new Employee();
-		employee.addAllocationHistory(new AllocationHistory(new Date(), "Hibernatettt"));
+		employee.addAllocationHistory(new AllocationHistory(new Date(),
+				"HibernatePro"));
 
 		employee.setName("Nilashan");
 		employee.setAge(30);
 		employee.getAllocationData().setCity("Colombo");
 		employee.getAllocationData().setMobile("0771236813");
-		employee.addAllocationHistory(new AllocationHistory(new Date(), "Virtusa"));
+		employee.addAllocationHistory(new AllocationHistory(new Date(),
+				"Virtusa"));
 		session.save(employee);
 		session.getTransaction().commit();
 		session.close();
@@ -43,7 +45,6 @@ public class Application {
 		System.out.println(employee.getName() + "  " + employee.getAge()
 				+ " years old");
 
-		
 		employee.addAllocationHistory(new AllocationHistory(new Date(), "BT"));
 
 		for (AllocationHistory allocationHistory : employee

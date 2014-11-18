@@ -3,8 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Nov 14, 2014 6:48:01 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.virtusa.training.hibernate.object.Employee" table="EMPLOYEE">
-       <id name="empId" type="int">
+	<class name="com.virtusa.training.hibernate.object.Employee"
+		table="EMPLOYEE">
+		<id name="empId" type="int">
 			<column name="EMPID" />
 			<generator class="increment" />
 		</id>
@@ -26,12 +27,5 @@
 			<list-index column="ROWID" />
 			<one-to-many
 				class="com.virtusa.training.hibernate.object.AllocationHistory" />
-		</list>
-
-
-
-
-
-
 	</class>
 </hibernate-mapping>
