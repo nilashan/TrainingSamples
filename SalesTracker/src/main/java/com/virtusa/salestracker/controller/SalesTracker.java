@@ -1,11 +1,17 @@
 package com.virtusa.salestracker.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.virtusa.salestracker.model.Sales;
+import com.virtusa.salestracker.model.SalesType;
 
 @Controller
 public class SalesTracker {
@@ -29,6 +35,25 @@ public class SalesTracker {
 		}else{
 			return "addSalesValue";
 		}*/
+	}
+	@RequestMapping(value="/salesTypes", method=RequestMethod.GET)
+	public @ResponseBody List<SalesType> getAllSalesTypes(){
+		
+		List<SalesType> list=new ArrayList<SalesType>();
+		SalesType salesType=new SalesType();
+		salesType.setSalesTypes("Direct");
+		list.add(salesType);
+		
+		SalesType web=new SalesType();
+		salesType.setSalesTypes("web");
+		list.add(web);
+		
+
+		SalesType shop=new SalesType();
+		salesType.setSalesTypes("shop");
+		list.add(shop);
+		
+		return list;
 	}
 	
 	
