@@ -1,4 +1,3 @@
-import java.awt.image.RescaleOp;
 import java.util.Date;
 import java.util.List;
 
@@ -17,45 +16,43 @@ public class Application {
 
 	public static void main(String args[]) {
 
-	save();
+		save();
 		// load();
 		loadQueryBased();
 	}
-	
-	static void loadQueryBased()
-	{
-		Session session=HibernateUtilities.getSessionFactory().openSession();
+
+	static void loadQueryBased() {
+		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
-		/*Query query = session.createQuery("from Employee").setFirstResult(0).setMaxResults(2);*/
-		
-		/*Query query=session.getNamedQuery("getEmployees");
-		List<Employee> employees=query.list();
-		for(Employee employee:employees)
-		{
-			System.out.println(employee.getName());
-		}*/
-		
-		Criteria criteria=session.createCriteria(Employee.class);
+		/*
+		 * Query query =
+		 * session.createQuery("from Employee").setFirstResult(0).setMaxResults
+		 * (2);
+		 */
+
+		/*
+		 * Query query=session.getNamedQuery("getEmployees"); List<Employee>
+		 * employees=query.list(); for(Employee employee:employees) {
+		 * System.out.println(employee.getName()); }
+		 */
+
+		Criteria criteria = session.createCriteria(Employee.class);
 		criteria.add(Restrictions.eqOrIsNull("age", 26));
-			List<Employee> employees=criteria.list();	
-			for(Employee employee:employees)
-			{
-				System.out.println(employee.getName());
-			}
+		List<Employee> employees = criteria.list();
+		for (Employee employee : employees) {
+			System.out.println(employee.getName());
+		}
 		session.getTransaction().commit();
 		session.close();
 
 	}
-	
-	
 
 	static void save() {
 		Session session = HibernateUtilities.getSessionFactory().openSession();
 		session.beginTransaction();
 
 		Employee luke = new Employee(1, "Luke", 32, new AllocationData("col",
-				"01"), new AllocationHistory(new Date(), "p1"),
-				new Alert("Hi"));
+				"01"), new AllocationHistory(new Date(), "p1"), new Alert("Hi"));
 		Employee gihan = new Employee(1, "Gihan", 23, new AllocationData(
 				"Galle", "01"), new AllocationHistory(new Date(), "p1"),
 				new Alert("Good"));
@@ -102,8 +99,6 @@ public class Application {
 					+ allocationHistory.getProjectCode());
 		}
 
-		
-		
 		session.getTransaction().commit();
 		session.close();
 	}
