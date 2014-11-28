@@ -13,6 +13,10 @@
 		</init-param>
 	</servlet>
 
+<servlet-mapping>
+		<servlet-name>salesTrackerDispatcherServlet</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>salesTrackerDispatcherServlet</servlet-name>
 		<url-pattern>*.json</url-pattern>

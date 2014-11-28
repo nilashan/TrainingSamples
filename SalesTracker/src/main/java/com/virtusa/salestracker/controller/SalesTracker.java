@@ -36,25 +36,7 @@ public class SalesTracker {
 			return "addSalesValue";
 		}*/
 	}
-	@RequestMapping(value="/salesTypes", method=RequestMethod.GET)
-	public @ResponseBody List<SalesType> getAllSalesTypes(){
-		
-		List<SalesType> list=new ArrayList<SalesType>();
-		SalesType salesType=new SalesType();
-		salesType.setSalesTypes("Direct");
-		list.add(salesType);
-		
-		SalesType web=new SalesType();
-		salesType.setSalesTypes("web");
-		list.add(web);
-		
-
-		SalesType shop=new SalesType();
-		salesType.setSalesTypes("shop");
-		list.add(shop);
-		
-		return list;
-	}
+	
 	
 	
 	
